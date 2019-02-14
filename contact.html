@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title text-center>
+      Produtos
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="cards-bg">
+   <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Recarregar" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card *ngFor="let item of items">
+    <img [src]="item.url" />
+    <ion-card-content>
+        
+      <ion-card-title>
+          <ion-icon name="flash"></ion-icon>{{item.title}}
+      </ion-card-title>
+      <p>
+        {{item.body}}
+      </p>
+    </ion-card-content>
+  </ion-card> 
+
+  <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>  -->
+ <!-- <iframe src="https://prodigium.lojaintegrada.com.br" frameborder="0"></iframe> -->
+</ion-content>
